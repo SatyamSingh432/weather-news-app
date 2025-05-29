@@ -16,9 +16,9 @@ const News = () => {
 }, [category]);
  console.log(articles)
  const changeHandler =(e)=>{
-setCategory(e.target.value)
+ setCategory(e.target.value)
  }
-const clickHandler = (url1,sef)=>{
+ const clickHandler = (url1,sef)=>{
   console.log("satt")
  setUrl(url1)
  setDes(sef)
@@ -27,7 +27,7 @@ const clickHandler = (url1,sef)=>{
 
   return (
 
-    <>
+    <div className="w-screen">
     <div className="w-full flex justify-center pt-10 "> 
      <select className="w-[300px] h-[40px] border-gray-400 rounded-md px-2 border-2 " name="cars" id="cars" onChange={changeHandler}>
      <option value="general">general</option>
@@ -47,7 +47,7 @@ const clickHandler = (url1,sef)=>{
     {modalOpen && (
    <Modal url={url} des={des} category={category} onClose={() => setModalOpen(false)} />
 )}
-    </>
+    </div>
 
   );
 };

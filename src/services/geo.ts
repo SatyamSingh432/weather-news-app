@@ -8,7 +8,7 @@ export const getCityCoordinates = async (city: string, setLoading,setCity) => {
     `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`
   );
   if(response.data[0]===undefined){
-    alert("Please enter valid city name")
+    alert("Please enter the valid city name")
     setLoading(false)
     setCity('')
   }
