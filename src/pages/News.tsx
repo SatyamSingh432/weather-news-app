@@ -1,23 +1,54 @@
 import { useEffect, useState } from "react";
 import { getNews } from "../services/news";
-
+import NewsCard from "../components/NewsCard";
+import Modal from "../components/Modal";
 const News = () => {
   const [articles, setArticles] = useState([]);
-
+  const [category, setCategory] = useState("general")
+  const [des,setDes]=useState("")
+  const [modalOpen , setModalOpen] = useState(false)
+  const [ url, setUrl]=useState("")
   useEffect(() => {
-    getNews().then(setArticles);
-  }, []);
+  getNews().then((articles) => {
+    const filtered = articles.filter((ele) => ele.category === category);
+    setArticles(filtered);
+  });
+}, [category]);
+ console.log(articles)
+ const changeHandler =(e)=>{
+setCategory(e.target.value)
+ }
+const clickHandler = (url1,sef)=>{
+  console.log("satt")
+ setUrl(url1)
+ setDes(sef)
+        setModalOpen(true)
+}
 
   return (
-    <div className="p-4">
+
+    <>
+    <div className="w-full flex justify-center pt-10 "> 
+     <select className="w-[300px] h-[40px] border-gray-400 rounded-md px-2 border-2 " name="cars" id="cars" onChange={changeHandler}>
+     <option value="general">general</option>
+     <option value="sports">sports</option>
+     <option value="business">business</option>
+     <option value="technology">technology</option>
+     <option value="entertainment">entertainment</option>
+     <option value="health">health</option>
+     </select>
+    </div>
+    
+    <div className="p-10 ">
       {articles.map((a: any, i) => (
-        <div key={i} className="mb-4 border-b pb-2">
-          <h2 className="font-bold">{a.title}</h2>
-          <p>{a.description}</p>
-          <a href={a.url} target="_blank" rel="noopener noreferrer" className="text-blue-500">Read more</a>
-        </div>
+       ( <NewsCard onClick={()=>clickHandler(a.url,a.description)} setModalOpen={setModalOpen} key={i} a={a} />)
       ))}
     </div>
+    {modalOpen && (
+   <Modal url={url} des={des} category={category} onClose={() => setModalOpen(false)} />
+)}
+    </>
+
   );
 };
 
