@@ -23,7 +23,7 @@ const News = () => {
  setCategory(e.target.value)
  }
  const clickHandler = (url1,sef)=>{
-  console.log("satt")
+  // console.log("satt")
  setUrl(url1)
  setDes(sef)
         setModalOpen(true)
@@ -41,13 +41,12 @@ const News = () => {
           <span className="inline-block w-12 h-12 border-4 border-red-900 border-b-transparent rounded-full animate-spin" />
         </div>:<>
          <div className="w-full flex justify-center pt-10 "> 
-     <select className="w-[300px] h-[40px] border-gray-400 text-white rounded-md px-2 border-2 " name="cars" id="cars" onChange={changeHandler}>
+     <select className="w-[300px] h-[40px] border-gray-400 text-white rounded-md px-2 border-2 " name="cars" id="cars" value={category} onChange={changeHandler}>
      <option value="general">general</option>
      <option value="sports">sports</option>
      <option value="business">business</option>
      <option value="technology">technology</option>
      <option value="entertainment">entertainment</option>
-     <option value="health">health</option>
      </select>
     </div>
     
