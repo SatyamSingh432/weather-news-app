@@ -17,6 +17,8 @@ export const getWeather = async (lat: number, lon: number) => {
     );
 
     // console.log( res.data.list);
+if(!res.data.list){}
+
     return res.data.list.slice(0, 7); 
   } catch (error) {
     console.error(`Something went wrong2: ${error}`);

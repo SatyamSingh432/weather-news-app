@@ -11,7 +11,8 @@ const Weather = () => { const [city, setCity] = useState("");
 
   const searchForecast = async () => {
     setLoading(true)
-    const {lat,lon} = await getCityCoordinates(city);
+    const {lat,lon} = await getCityCoordinates(city,setLoading,setCity);
+    
     const dailyData = await getWeather(lat, lon);
     //  console.log(dailyData)
     if(dailyData){
