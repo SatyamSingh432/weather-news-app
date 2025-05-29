@@ -1,12 +1,37 @@
-# React + Vite
+A simple, responsive React dashboard that displays current **weather forecasts** and **latest news**. Built with modern frontend tools including **React**, **TypeScript**, **Tailwind CSS**, **Recharts**, and **Lottie animations**.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Weather Page
 
-## Expanding the ESLint configuration
+-  Enter a **city name** to fetch weather data.
+- Shows **7 weather cards** using 3-hour forecast intervals (used as an alternative to 7-day data due to API limitations).
+-  Displays a **temperature line chart** using `Recharts`.
+-  Includes Lottie animations for visual engagement.
+-  Responsive and styled with Tailwind CSS.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> ⚠️ The weather data is fetched from a free API, which only provides 3-hour interval data. A paid plan is required to access full 7-day forecasts.
+
+---
+
+### 📰 News Page
+
+-  Browse news by **category** (general, sports, business, technology, entertainment, health).
+-  Click a news card to open a modal with the article’s summary and a link to the original source.
+- Works on **localhost** with the News API.
+- ⚠️ **Note**: When deployed to platforms like Netlify, the News API may return a `426 Upgrade Required` error due to free-tier limitations. Upgrading the API plan is required for production deployment.
+
+---
+
+## 🛠️ Built With
+
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Recharts](https://recharts.org/)
+- [Lottie React](https://lottiereact.com/)
+- [React Router](https://reactrouter.com/)
+
+---
