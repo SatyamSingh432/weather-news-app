@@ -14,35 +14,46 @@ const Weather = () => { const [city, setCity] = useState("");
   };
 
   return (
-    <div className="p-4 flex h-screen justify-center flex-col">
-      <div className="mb-4 w-screen flex justify-center items-center flex-1 ">
-        
-          
+   <div className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-[#0b0b2b] via-[#1b2735] to-[#090a0f] flex">
+  {/* Static stars */}
+  <div className="absolute w-[1px] h-[1px] bg-white twinkle"></div>
+  <div className="absolute w-[1px] h-[1px] bg-white twinkle-reverse"></div>
+
+  {/* Shooting stars */}
+  <div className="absolute top-[20%] left-[-100px] w-[100px] h-[2px] bg-gradient-to-r from-white to-transparent shoot"></div>
+  <div className="absolute top-[35%] left-[-100px] w-[100px] h-[2px] bg-gradient-to-r from-white to-transparent shoot [animation-delay:1s]"></div>
+  <div className="absolute top-[50%] left-[-100px] w-[100px] h-[2px] bg-gradient-to-r from-white to-transparent shoot [animation-delay:2s]"></div>
+   <div className="p-4 flex justify-center flex-col gap-4 pt-6">
+      <div className="mb-4 w-screen flex justify-center items-center flex-1 py">
         <input
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          className="border p-2 mr-2"
-          placeholder="Enter city"
-        />
+          className="border p-1 mr-2 text-white text-lg rounded-lg pr-6 pl-2"
+          placeholder="Enter city name.."
+        >
+          </input> 
+          
+
         <button
           onClick={searchForecast} 
-          className=" text-white  flex items-center gap-2 relative"
+          className="text-white  flex items-center gap-2 relative "
         >
-        <div className="absolute top-[-112px] right-[-338px]">
+        <div className="absolute top-[-86px] right-[-59px] z-1">
            <DotLottieReact
-      src="https://lottie.host/dd7fdff7-0246-4517-914d-d0d6d1759418/DojMoQVlYC.lottie"
+      src="https://lottie.host/2f0d1a10-2d4b-4f55-bdf4-b2d05df8b01d/faGA2cvhRH.lottie"
       loop
       autoplay
-      style={{ width: "700px", height: "250px" }}
+      style={{ width: "250px", height: "200px" }}
     />
         </div>
          
-          check  weather
+         <span className="z-10 pl-14 font-medium text-[#121212] text-xl">
+          Check Weather
+          </span> 
         </button>
         
         
       </div>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {forecast.map((day, index) => (
           <div
@@ -65,6 +76,8 @@ const Weather = () => { const [city, setCity] = useState("");
         ))}
       </div>
     </div>
+</div>
+   
   )
 };
 
