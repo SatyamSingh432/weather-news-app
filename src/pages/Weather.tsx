@@ -21,8 +21,6 @@ const Weather = () => { const [city, setCity] = useState("");
     setCity("")
     setOpen(true)
     }
-    
-
   };
 
   return (
