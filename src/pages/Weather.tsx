@@ -7,14 +7,20 @@ import ExampleChart from "../components/Chart";
 const Weather = () => { const [city, setCity] = useState("");
   const [forecast, setForecast] = useState<any[]>([]);
   const [open,setOpen]=useState(false)
+  const [loading, setLoading] = useState(false);
+
   const searchForecast = async () => {
+    setLoading(true)
     const {lat,lon} = await getCityCoordinates(city);
     const dailyData = await getWeather(lat, lon);
     //  console.log(dailyData)
-
+    if(dailyData){
+      setLoading(false)
     setForecast(dailyData);
     setCity("")
     setOpen(true)
+    }
+    
 
   };
 
@@ -26,7 +32,11 @@ const Weather = () => { const [city, setCity] = useState("");
   <div className="absolute top-[35%] left-[-100px] w-[100px] h-[2px] bg-gradient-to-r from-white to-transparent shoot [animation-delay:1s]"></div>
   <div className="absolute top-[50%] left-[-100px] w-[100px] h-[2px] bg-gradient-to-r from-white to-transparent shoot [animation-delay:2s]"></div>
    <div className={open?"p-4 flex  justify-center flex-col gap-4 pt-6 ":"p-4 h-screen flex justify-center flex-col gap-4 pt-6 "} >
-      <div className="mb-4 w-screen flex flex-col md:flex-row gap-4 justify-center items-center flex-1 py flex-1">
+      {loading?<div className="flex justify-center items-center h-screen w-screen">
+          <span className="inline-block w-12 h-12 border-4 border-red-900 border-b-transparent rounded-full animate-spin" />
+        </div>:(
+         <>
+         <div className="mb-4 w-screen flex flex-col md:flex-row gap-4 justify-center items-center flex-1 py flex-1">
         <input
           value={city}
           onChange={(e) => setCity(e.target.value)}
@@ -63,6 +73,10 @@ const Weather = () => { const [city, setCity] = useState("");
       </div>
       </>
       }
+         </>
+        )}
+      
+      
     </div>
 </div>
    
