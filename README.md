@@ -16,13 +16,28 @@ A simple, responsive React dashboard that displays current **weather forecasts**
 
 ---
 
-### 📰 News Page
+<!-- ### 📰 News Page
 
 -  Browse news by **category** (general, sports, business, technology, entertainment, health).
 -  Click a news card to open a modal with the article’s summary and a link to the original source.
 - Works on **localhost** with the News API.
-- ⚠️ **Note**: When deployed to platforms like Netlify, the News API may return a `426 Upgrade Required` error due to free-tier limitations. Upgrading the API plan is required for production deployment.
+- ⚠️ **Note**: When deployed to platforms like Netlify, the News API may return a `426 Upgrade Required` error due to free-tier limitations. Upgrading the API plan is required for production deployment. -->
 
+
+
+News Portal App
+
+This is a simple and responsive News Portal application built with React. It allows users to browse a list of news sources and interact with them in a dynamic and user-friendly way.
+
+Features
+News Listing: Displays a clean and organized list of various news articles from multiple sources.
+
+Category Filtering: Easily filter news sources by their category (e.g., Technology, Sports, Business, General, etc.).
+
+Interactive Modals: Clicking on a news source opens a modal containing:
+The source image
+A brief description
+A "Read More" button that navigates to the official news website
 ---
 
 ## 🛠️ Built With
